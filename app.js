@@ -1,0 +1,1 @@
+// O script JS principal seria colado aqui (idêntico ao fornecido anteriormente)

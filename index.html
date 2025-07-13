@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cripto Monitor</title>
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icons/icon-192.png">
+  <meta name="theme-color" content="#f7931a">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0e0e0e;
+      color: #fff;
+      text-align: center;
+      padding: 30px;
+    }
+    .container {
+      max-width: 440px;
+      margin: auto;
+      background: #1a1a1a;
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+    }
+    h1 {
+      margin-bottom: 10px;
+      font-size: 1.4em;
+      white-space: nowrap;
+    }
+    .price-box {
+      margin: 15px 0;
+      font-size: 1.4em;
+      padding: 10px;
+      border-radius: 8px;
+      background-color: #222;
+    }
+    .label {
+      font-size: 0.85em;
+      color: #aaa;
+    }
+    .btc, .btcusdt {
+      color: #f7931a;
+    }
+    .usdt {
+      color: #26a17b;
+    }
+    input, select {
+      padding: 8px;
+      width: 80%;
+      margin: 8px auto;
+      font-size: 1em;
+      border-radius: 6px;
+      border: none;
+      text-align: center;
+    }
+    .convert-result {
+      font-size: 0.9em;
+      margin-bottom: 15px;
+      color: #ccc;
+    }
+    .variation {
+      font-size: 0.65em;
+      margin-top: 4px;
+    }
+    .up { color: #4fff54; }
+    .down { color: #ff4b4b; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>💰 Preços em tempo real</h1>
+
+    <div class="price-box">
+      <div class="label">Bitcoin (BTC/USDT)</div>
+      <div class="btcusdt" id="btc-usdt">Carregando...</div>
+      <div class="variation" id="btc-usdt-var"></div>
+    </div>
+
+    <div class="price-box">
+      <div class="label">Bitcoin (BTC/BRL)</div>
+      <div class="btc" id="btc-brl">Carregando...</div>
+      <div class="variation" id="btc-brl-var"></div>
+    </div>
+
+    <div class="price-box">
+      <div class="label">Tether (USDT/BRL)</div>
+      <div class="usdt" id="usdt-brl">Carregando...</div>
+      <div class="variation" id="usdt-brl-var"></div>
+    </div>
+
+    <h3>📊 Variação (%)</h3>
+    <select id="variation-period">
+      <option value="1h">1H</option>
+      <option value="24h" selected>1D</option>
+      <option value="7d">1S</option>
+      <option value="30d">1M</option>
+      <option value="1y">1Y</option>
+      <option value="all">ALL</option>
+    </select>
+
+    <h2 style="margin-top: 25px;">🔄 Conversor</h2>
+    <input type="number" id="input-value" placeholder="Digite um valor" />
+    <select id="input-type">
+      <option value="brl">R$ (BRL)</option>
+      <option value="usdt">USDT</option>
+      <option value="btc">BTC</option>
+    </select>
+    <div class="convert-result" id="convert-output">Resultado aparecerá aqui</div>
+
+    <div style="font-size: 0.8em; margin-top: 10px; color: #666;">Fonte: Binance & Coingecko APIs</div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
